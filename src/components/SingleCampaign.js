@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import Campaign from './Campaign'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-export const CAMPAIGN_QUERY = gql`
+const SINGLE_CAMPAIGN_QUERY = gql`
 {
   campaigns {
     id

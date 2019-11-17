@@ -27,10 +27,29 @@
 
 import React, { Component } from 'react'
 import CampaignList from './CampaignList'
+import CreateCampaign from './CreateCampaign'
+import NavBar from './NavBar'
+import Login from './Login'
+import Home from './Home'
+import { Switch, Route } from 'react-router-dom'
+
 
 class App extends Component {
   render() {
-    return <CampaignList />
+    return (
+      <div className="center w85">
+        <NavBar />
+        <div className="ph3 pv1 background-gray">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/campaigns" component={CampaignList} />
+            <Route exact path="/campaigns/:id" component={Home} />
+            <Route exact path="/create" component={CreateCampaign} />
+            <Route exact path="/login" component={Login} />
+          </Switch>
+        </div>
+      </div>
+    )
   }
 }
 
