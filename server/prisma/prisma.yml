@@ -1,0 +1,8 @@
+#endpoint: ''
+endpoint: https://us1.prisma.sh/artogalt-57d4b6/stackathon-yawningportal-server/dev
+
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client

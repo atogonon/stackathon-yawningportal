@@ -1,0 +1,35 @@
+type Campaign {
+  id: ID! @id
+  title: String!
+  description: String!
+  createdAt: DateTime! @createdAt
+  createdBy: User
+  posts: [Post!]!
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password: String!
+  campaigns: [Campaign!]!
+  posts: [Post!]!
+  characters: [Character!]!
+}
+
+type Post {
+  id: ID! @id
+  campaign: Campaign!
+  postedBy: User!
+  title: String!
+  content: String!
+  createdAt: DateTime! @createdAt
+}
+
+type Character {
+  id: ID! @id
+  name: String!
+  race: String!
+  class: String!
+  createdBy: User
+}

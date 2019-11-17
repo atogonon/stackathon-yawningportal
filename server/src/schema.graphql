@@ -1,0 +1,57 @@
+type Query {
+  info: String!
+  campaigns: [Campaign!]!
+  posts: [Post!]!
+  characters: [Character!]!
+}
+
+type Mutation {
+  post(title: String!, description: String!): Campaign!
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  newPost(campaign: ID!, title: String!, content: String!): Post!
+  newCharacter(name: String!, race: String!, class: String!): Character!
+}
+
+type Campaign {
+  id: ID!
+  title: String!
+  description: String!
+  createdBy: User
+  posts: [Post!]!
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  campaigns: [Campaign!]!
+  posts: [Post!]!
+  characters: [Character!]!
+}
+
+type Post {
+  id: ID!
+  campaign: Campaign!
+  postedBy: User!
+  title: String!
+  content: String!
+}
+
+type Character {
+  id: ID!
+  name: String!
+  race: String!
+  class: String!
+  createdBy: User
+}
+
+type Subscription {
+  newCampaign: Campaign
+  newPost: Post
+}
