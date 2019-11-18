@@ -11,6 +11,7 @@ export const CAMPAIGN_QUERY = gql`
     description
     createdBy {
       id
+      name
     }
     posts {
       id
@@ -22,20 +23,28 @@ export const CAMPAIGN_QUERY = gql`
 class CampaignList extends Component {
   render() {
     return (
-      <Query query={CAMPAIGN_QUERY}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>
-          if (error) return <div>Error</div>
+      <div className="CampaignListPage">
+        <h1>Campaigns</h1>
+        <div className="mappedCampaigns">
+          <Query query={CAMPAIGN_QUERY}>
+          {({ loading, error, data }) => {
+            if (loading) return <div>Fetching</div>
+            if (error) return <div>Error</div>
 
-          const campaignsToRender = data.campaigns
+            const campaignsToRender = data.campaigns
 
-          return (
-            <div>
-              {campaignsToRender.map(campaign => <Campaign key={campaign.id} campaign={campaign} />)}
-            </div>
-          )
-        }}
-      </Query>
+            return (
+              <div>
+                {campaignsToRender.map(campaign =>
+                  <Campaign key={campaign.id} campaign={campaign} />
+                )}
+              </div>
+            )
+          }}
+        </Query>
+        </div>
+
+      </div>
     )
   }
 }

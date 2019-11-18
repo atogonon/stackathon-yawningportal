@@ -1,6 +1,8 @@
 type Query {
   info: String!
   campaigns: [Campaign!]!
+  getCampaign(id: ID!): Campaign!
+  getMe: User!
   posts: [Post!]!
   characters: [Character!]!
 }

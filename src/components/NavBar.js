@@ -3,43 +3,45 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { AUTH_TOKEN } from '../constants'
 
+
 class NavBar extends Component {
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     return (
-      <div className="flex pa1 justify-between nowrap orange">
-        <div className="flex flex-fixed black">
-          <div className="fw7 mr1">The Yawning Portal</div>
-          <Link to="/" className="ml1 no-underline black">
-            home
+      <div className="NavBar">
+        <div className="MainBar">
+          <div className="Title">The Yawning Portal</div>
+          <Link to="/" className="NavLink">
+            Home
           </Link>
           {authToken && (
             <div className="flex">
-              <div className="ml1">|</div>
-              <Link to="/campaigns" className="ml1 no-underline black">
-                campaigns
+              <Link to="/campaigns" className="NavLink">
+                Campaigns
               </Link>
-              <div className="ml1">|</div>
-              <Link to="/create" className="ml1 no-underline black">
-                submit
+              <Link to="/create" className="NavLink">
+                Create Campaign
+              </Link>
+              <Link to="/profile" className="NavLink">
+                My Profile
               </Link>
             </div>
           )}
         </div>
-        <div className="flex flex-fixed">
+        <div className="AuthBar">
           {authToken ? (
             <div
-              className="ml1 pointer black"
+              className="Log"
               onClick={() => {
                 localStorage.removeItem(AUTH_TOKEN)
                 this.props.history.push(`/`)
               }}
             >
-              logout
+              Logout
             </div>
           ) : (
-            <Link to="/login" className="ml1 no-underline black">
-              login
+            <Link to="/login" className="Log">
+              Login
             </Link>
           )}
         </div>
