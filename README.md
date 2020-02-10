@@ -1,3 +1,7 @@
+Welcome to the Yawning Portal!  This is the stackathon solo project I was working on while studying at Fullstack Academy.  And yes, this is very much a work in progress. I wanted to make something that is related to one of my hobbies and came up with this.  Essentially, the idea is that it is a place where people who play DnD can go to keep track of their campaigns and whatnot.  The project at its core is very CRUD based so to make things more interesting I mainly used this project as a vehicle to teach myself GraphQL.  Not bad for a first attempt in my opinion, but it definitely will see some refinements as a get more comfortable working with it.  Keep an eye on this readme and repo as I update this project.
+
+======================================================
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
